@@ -6,7 +6,7 @@
 
         <div class="collapse navbar-collapse" id="collapse_target">
 
-            <a class="navbar-brand"href="index.php"><img src="{{ asset ('svg/logo.png') }}"></a>
+            <a class="navbar-brand"href="/index"><img src="{{ asset ('svg/logo.png') }}"></a>
 
             <ul class="navbar-nav ml-auto">
 
@@ -14,32 +14,32 @@
                 <?php // if(!isLogged()): ?>
                 
                     <li class="nav-item">
-                        <a class="nav-link" href="login.php">Login</a>
+                    <a class="nav-link" href="/home">Login</a>
                     </li> 
 
                     <li class="nav-item">
-                        <a class="nav-link" href="registrarse.php">Registrate</a>
+                        <a class="nav-link" href="/register">Registrate</a>
                     </li> 
 
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php">Home</a>
+                        <a class="nav-link" href="/publication">Home</a>
                     </li>
 
                 <?php //else: ?>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="perfil.php">Perfil</a>
+                        <a class="nav-link" href="/profile">Perfil</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="logout.php">Logout</a>
+                        <a class="nav-link" href="/logout">Logout</a>
                     </li>
 
 
                 <?php //endif; ?>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="preguntasFrecuentes.php">FAQS</a>
+                    <a class="nav-link" href="/faqs">FAQS</a>
                 </li> 
 
             </ul>

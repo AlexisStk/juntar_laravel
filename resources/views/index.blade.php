@@ -37,7 +37,7 @@
                         <li>¿Estás buscando jugadores para un partido de futbol?</li>
                     </ul>
 
-                    <a type="button" class="btn btn-secundary btn-lg btn-block" href="registrarse.php" role="button">¡Registrate</a>
+                <a type="button" class="btn btn-secundary btn-lg btn-block" href="/register" role="button">¡Registrate!</a>
                 </div>
                 
             </div>
