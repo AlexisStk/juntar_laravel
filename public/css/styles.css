@@ -104,14 +104,10 @@ li {
 
 footer {
     background-color: #343A40;
-    font-size: 12px;
+    font-size: 15px;
     position: absolute;
     bottom: 0;
-    height: 200px;
     width:100%;
     color: #fff;
-    
-
-   
+    font-family: 'Dosis', sans-serif;
 }
-

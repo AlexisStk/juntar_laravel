@@ -23,7 +23,7 @@
                     @endif
                     @if(Auth::check())
                     <li class="nav-item">
-                        <a class="nav-link" href="/publication">Home</a>
+                        <a class="nav-link" href="/publication">Inicio</a>
                     </li>
                     
                     <li class="nav-item">
