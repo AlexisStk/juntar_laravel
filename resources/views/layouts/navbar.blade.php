@@ -11,7 +11,7 @@
             <ul class="navbar-nav ml-auto">
 
                 
-                <?php // if(!isLogged()): ?>
+                    @if(!(Auth::check()))
                 
                     <li class="nav-item">
                     <a class="nav-link" href="/home">Login</a>
@@ -20,13 +20,12 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/register">Registrate</a>
                     </li> 
-
+                    @endif
+                    @if(Auth::check())
                     <li class="nav-item">
                         <a class="nav-link" href="/publication">Home</a>
                     </li>
-
-                <?php //else: ?>
-
+                    
                     <li class="nav-item">
                         <a class="nav-link" href="/profile">Perfil</a>
                     </li>
@@ -34,9 +33,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/logout">Logout</a>
                     </li>
-
-
-                <?php //endif; ?>
+                    @endif
 
                 <li class="nav-item">
                     <a class="nav-link" href="/faqs">FAQS</a>

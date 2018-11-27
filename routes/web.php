@@ -16,6 +16,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::view('/index', 'index');
+Route::get('/publication', 'PublicationController@index'); //crear controlador
+Route::get('/profile', 'ProfileController@index'); //lo mismo
 
 Route::get('/faqs', 'FaqsController@index');
 
