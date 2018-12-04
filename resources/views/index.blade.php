@@ -2,6 +2,7 @@
 
 <head>
     @include('layouts.head')
+    <title>JuntAr!</title>
 </head>
 
 <body>

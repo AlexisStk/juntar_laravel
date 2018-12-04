@@ -1,0 +1,4 @@
+***** Cosas Importantes *****
+
+    ** Para iniciar el proyecto crear una base de datos vacia **
+    

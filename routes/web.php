@@ -13,11 +13,17 @@
 
 Auth::routes();
 
+// Vista Principal
+Route::view('/', 'index');
+
+// Login
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::view('/index', 'index');
-Route::get('/publication', 'PublicationController@index'); //crear controlador
-Route::get('/profile', 'ProfileController@index'); //lo mismo
+// Preguntas Frecuentes
+Route::view('/faqs', 'faqs');
 
-Route::get('/faqs', 'FaqsController@index');
+Route::get('/publication', 'PublicationController@index');
+Route::get('/profile', 'ProfileController@index');
+
+
 

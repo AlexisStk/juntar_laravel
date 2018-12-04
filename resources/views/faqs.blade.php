@@ -2,6 +2,7 @@
 
 <head>
     @include('layouts.head')
+    <title>Preguntas Frecuentes</title>
 </head>
 
 <body>

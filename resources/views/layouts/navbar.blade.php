@@ -6,7 +6,7 @@
 
         <div class="collapse navbar-collapse" id="collapse_target">
 
-            <a class="navbar-brand"href="/index"><img src="{{ asset ('svg/logo.png') }}"></a>
+            <a class="navbar-brand"href="/"><img src="{{ asset ('svg/logo.png') }}"></a>
 
             <ul class="navbar-nav ml-auto">
 
