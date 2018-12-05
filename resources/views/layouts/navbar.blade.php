@@ -14,20 +14,27 @@
                     @if(!(Auth::check()))
                 
                     <li class="nav-item">
-                    <a class="nav-link" href="/home">Login</a>
+                    <a class="nav-link" href="/home">Loguear</a>
                     </li> 
 
                     <li class="nav-item">
                         <a class="nav-link" href="/register">Registrate</a>
                     </li> 
+                    <li class="nav-item">
+                        <a class="nav-link" href="/faqs">FAQS</a>
+                    </li>
                     @endif
                     @if(Auth::check())
                     <li class="nav-item">
-                        <a class="nav-link" href="/publication">Inicio</a>
+                        <a class="nav-link" href="/inicio">Inicio</a>
                     </li>
                     
                     <li class="nav-item">
-                        <a class="nav-link" href="/profile">Perfil</a>
+                        <a class="nav-link" href="/grupos">Mas Grupos!</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/perfil">Mi Perfil</a>
                     </li>
 
                     <li class="nav-item">
@@ -40,11 +47,7 @@
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
                         </li>
-                    @endif
-
-                <li class="nav-item">
-                    <a class="nav-link" href="/faqs">FAQS</a>
-                </li> 
+                    @endif 
 
             </ul>
         </div>

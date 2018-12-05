@@ -22,8 +22,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 // Preguntas Frecuentes
 Route::view('/faqs', 'faqs');
 
-Route::get('/publication', 'PublicationController@index');
-Route::get('/profile', 'ProfileController@index');
+//Inicio Se muestra las publicaciones de los grupos que estas
+Route::get('/inicio', 'InitController@index');
+
+//Grupos
+Route::get('/grupos', 'GroupsController@index');
+//Perfil con datos personales que se puedan editar
+Route::get('/perfil', 'ProfileController@index');
 
 
 

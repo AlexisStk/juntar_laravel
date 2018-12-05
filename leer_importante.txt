@@ -3,6 +3,8 @@
     ** Para iniciar el proyecto crear una base de datos vacia **
     ** Perfil muestra tus datos +edit **
     ** inicio mostrar publicacion de los grupos que seguis **
-    ** /Buscador muestra todos los grupos con sus publicaciones relevantes **
+    ** /grupos muestra todos los grupos con sus publicaciones relevantes **
     ** footer dinamico, parecido al navabar **
-    
+    ** Novedades del grupos que seguis, aparece siempre el ultimo posteo hecho **
+    ** Tabla pibot para los mensajes (dejar para el final) **
+    ** Si estas logeado no poder entrar a la pagina / **
