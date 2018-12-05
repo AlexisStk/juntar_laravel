@@ -16,9 +16,9 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="profile-img">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
+                            <img src="{{ asset ('svg/dani.jpg') }}" alt=""/>
                             <div class="file btn btn-lg btn-primary">
-                                Change Photo
+                                Cambiar Foto
                                 <input type="file" name="file"/>
                             </div>
                         </div>
@@ -26,12 +26,12 @@
                     <div class="col-md-6">
                         <div class="profile-head">
                                     <h5>
-                                        Kshiti Ghelani
+                                        Daniel Fuentes
                                     </h5>
                                     <h6>
-                                        Web Developer and Designer
+                                        Diseñador Web, Especialista en WordPress
                                     </h6>
-                                    <p class="proile-rating">RANKINGS : <span>8/10</span></p>
+                                    <p class="proile-rating">RANKINGS : <span>/10</span></p>
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 <li class="nav-item">
                                     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
