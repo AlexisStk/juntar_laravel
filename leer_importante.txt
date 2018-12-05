@@ -1,4 +1,8 @@
 ***** Cosas Importantes *****
 
     ** Para iniciar el proyecto crear una base de datos vacia **
+    ** Perfil muestra tus datos +edit **
+    ** inicio mostrar publicacion de los grupos que seguis **
+    ** /Buscador muestra todos los grupos con sus publicaciones relevantes **
+    ** footer dinamico, parecido al navabar **
     
