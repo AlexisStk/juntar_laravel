@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     @include('layouts.head');
-    <title>Inicio</title>
+    <title>Perfil</title>
 </head>
-<body>
+<body class="blue-purple-gredient">
     @include('layouts.navbar')
     @include('layouts.footer')
     @include('layouts.scripts')

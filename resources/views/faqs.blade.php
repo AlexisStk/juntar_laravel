@@ -5,7 +5,7 @@
     <title>Preguntas Frecuentes</title>
 </head>
 
-<body>
+<body class="bodyJuntar">
 
     <div class="mainHeader">
 

@@ -4,7 +4,7 @@
     @include('layouts.head');
     <title>Inicio</title>
 </head>
-<body>
+<body class="bodyJuntar">
     @include('layouts.navbar')
     {{--@include('layouts.footer')--}}
     @include('layouts.scripts')
