@@ -81,7 +81,9 @@
                                 </button>
 
                             </div>
-                        </div> 
+                        </div>
+
+                        <a href="/grupos/delete/{{$group->id}}">Boton precario</a>
                         
                     </form>
                 </div>

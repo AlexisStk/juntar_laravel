@@ -25,13 +25,14 @@ Route::view('/faqs', 'faqs');
 //Inicio Se muestra las publicaciones de los grupos que estas
 Route::get('/inicio', 'InitController@index');
 
-//Grupos
-Route::get('/grupos', 'GroupsController@index');    // Todos los grupos activos
-Route::get('/grupos/create', 'GroupsController@create'); // Formulario de Crear Grupo
-Route::post('/grupos/create', 'GroupsController@store')->name('groups.create'); // Guardar el grupo
-Route::get('/grupos/show/{id}', 'GroupsController@show');    // Ver un grupo determinado
-Route::get('/grupos/edit/{id}', 'GroupsController@edit');    // Ver un grupo determinad
-Route::post('/grupos/edit/{id}', 'GroupsController@update');    // Guardo el grupo con edicion.
+//Grupos -- Lo podríamos hacer con grupo de rutas no ?
+Route::get('/grupos', 'GroupsController@index')->middleware('auth');    // Todos los grupos activos
+Route::get('/grupos/create', 'GroupsController@create')->middleware('auth'); // Formulario de Crear Grupo
+Route::post('/grupos/create', 'GroupsController@store')->middleware('auth'); // Guardar el grupo
+Route::get('/grupos/show/{id}', 'GroupsController@show')->middleware('auth');    // Ver un grupo determinado
+Route::get('/grupos/edit/{id}', 'GroupsController@edit')->middleware('auth');    // Ver un grupo determinad
+Route::post('/grupos/edit/{id}', 'GroupsController@update')->middleware('auth');    // Guardo el grupo con edicion.
+Route::get('/grupos/delete/{id}', 'GroupsController@destroy')->middleware('auth'); //Desactivamos el grupo actual.
 
 
 //Perfil Usuarios

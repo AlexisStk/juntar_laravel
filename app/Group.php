@@ -26,4 +26,5 @@ class Group extends Model
     {
         return $this->orderBy('date');
     }
+
 }

@@ -50,11 +50,6 @@
         <br>
         <br>
         <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
 
         @foreach($groups as $group)
         <hr>
@@ -63,6 +58,13 @@
             {{ $group->place }} <br>
             {{ $group->date }} <br>
             {{ $group->limit }} <br>
+
+            @if($group->user_id == $id)  
+                <a href="/grupos/edit/{{ $group->id  }}">Sos creador de este grupo</a>
+            @else
+                {{-- //si no es el creador, puede pedir el ingreso. --}}
+                <a href="#">Solicitar ingreso al grupo</a>
+            @endif
         <hr>
         @endforeach
     </div>

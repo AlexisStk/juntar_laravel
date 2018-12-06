@@ -17,9 +17,14 @@ class GroupsController extends Controller
     public function index()
     {
 
-        $groups = Group::all();
+        // $groups = Group::all();
 
-        return view('groups.index')->with('groups',$groups);
+        //Sólo traemos de la DB los grupos que esten activos.
+        $groups = Group::where('active',true)->get();
+
+        $id = auth()->user()->id;
+
+        return view('groups.index')->with('groups',$groups)->with('id',$id);
 
     }
 
@@ -83,7 +88,9 @@ class GroupsController extends Controller
         //
         $group = Group::find($id);
 
-        return view('groups.show')->with('group',$group);
+        $id = $id = auth()->user()->id;
+
+        return view('groups.show')->with('group',$group)->with('id',$id);
     }
 
     /**
@@ -100,8 +107,8 @@ class GroupsController extends Controller
         //Si no es el creador del grupo, no lo dejamos editar nada.
         if(!($group->user_id == auth()->user()->id)){
             return redirect("/grupos");
-        }elseif(!($group->active)){
-            return redirec("/grupos");
+        }elseif(!($group->active)){ //Si el grupo no se encuentra activo, vuelve a index
+            return redirect("/grupos");
         }
 
         return view('groups.edit')->with('group',$group);
@@ -117,7 +124,17 @@ class GroupsController extends Controller
     public function update(Request $request, $id)
     {
         //
-        dd('llegué a update');
+        $group = Group::find($id);
+
+        $group->title = $request->input('title');
+        $group->description  = $request->input('description');
+        $group->date = $request->input('date');
+        $group->place = $request->input('place');
+        $group->limit = $request->input('limit');
+
+        $group->save();
+
+        return redirect('/grupos/show/$id');
     }
 
     /**
@@ -128,6 +145,21 @@ class GroupsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $group = Group::find($id);
+        //Si no es el creador del grupo, no lo dejamos editar nada.
+        if(!($group->user_id == auth()->user()->id)){
+            return redirect("/grupos");
+        }elseif(!($group->active)){ //Si el grupo no se encuentra activo, vuelve a index
+            return redirect("/grupos");
+        }
+
+        //Para llegar a este punto, el usuario tiene que estar absolutamente seguro 
+        //de que quiere dejar el grupo sin funcionamiento.
+        $group->active = false;
+
+        $group->save();
+
+        return redirect('/grupos');
+
     }
 }
