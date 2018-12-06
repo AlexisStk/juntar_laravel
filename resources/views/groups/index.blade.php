@@ -44,7 +44,27 @@
         </div>
     </div>
 
-</nav>    
-    
+</nav>
+
+    <div class="container py=6">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        @foreach($groups as $group)
+        <hr>
+            {{ $group->title }} <br>
+            {{ $group->description }} <br>
+            {{ $group->place }} <br>
+            {{ $group->date }} <br>
+            {{ $group->limit }} <br>
+        <hr>
+        @endforeach
+    </div>
 </body>
 </html>

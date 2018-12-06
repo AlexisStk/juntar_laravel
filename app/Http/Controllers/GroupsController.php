@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+Use App\Group;
+Use App\User;
+
 class GroupsController extends Controller
 {
     /**
@@ -13,7 +16,11 @@ class GroupsController extends Controller
      */
     public function index()
     {
-        return view('groups');
+
+        $groups = Group::all();
+
+        return view('groups.index')->with('groups',$groups);
+
     }
 
     /**
@@ -24,6 +31,7 @@ class GroupsController extends Controller
     public function create()
     {
         //
+        return view('groups.create');
     }
 
     /**
@@ -35,6 +43,33 @@ class GroupsController extends Controller
     public function store(Request $request)
     {
         //
+        
+        //Validacion de los datos del grupo.
+
+        $rules = [
+            'title' => 'required',
+            'description' => 'required',
+            'date' => 'date|required',
+            'place' => 'required',
+            'limit' => 'date|required'
+        ];
+
+        $message = [
+            'required' => 'el campo :attribute es obligatorio'
+        ];
+
+        $this->validate($request,$rules,$message);
+
+        $userId = auth()->user()->id;
+
+        $request['user_id'] = $userId;
+
+        $group = new Group($request->all());
+
+        $group->save();
+
+        return redirect('/grupos');
+
     }
 
     /**
@@ -46,6 +81,9 @@ class GroupsController extends Controller
     public function show($id)
     {
         //
+        $group = Group::find($id);
+
+        return view('groups.show')->with('group',$group);
     }
 
     /**
@@ -57,6 +95,16 @@ class GroupsController extends Controller
     public function edit($id)
     {
         //
+        $group = Group::find($id);
+
+        //Si no es el creador del grupo, no lo dejamos editar nada.
+        if(!($group->user_id == auth()->user()->id)){
+            return redirect("/grupos");
+        }elseif(!($group->active)){
+            return redirec("/grupos");
+        }
+
+        return view('groups.edit')->with('group',$group);
     }
 
     /**
@@ -69,6 +117,7 @@ class GroupsController extends Controller
     public function update(Request $request, $id)
     {
         //
+        dd('llegué a update');
     }
 
     /**

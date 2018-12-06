@@ -16,12 +16,16 @@ class CreateGroupsTable extends Migration
         Schema::create('groups', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
+            $table->text('description');
             $table->date('date');
             $table->string('place');
-            $table->integer('limit');
+            $table->date('limit');
+
+            $table->boolean('active')->nullable()->default(true);  //Está activo el grupo?
 
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
+            
             $table->timestamps();
         });
     }

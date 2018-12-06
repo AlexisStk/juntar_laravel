@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\User;
+
 class ProfileController extends Controller
 {
     /**
@@ -13,7 +15,11 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        return view('profile');
+        // return view('profile');
+
+        $user = User::find(auth()->user()->id);
+        
+        return view('profile')->with('user',$user);
     }
 
     /**
@@ -46,6 +52,8 @@ class ProfileController extends Controller
     public function show($id)
     {
         //
+        $user = User::find($id);
+        return view('profile')->with('user',$user);
     }
 
     /**
@@ -57,6 +65,7 @@ class ProfileController extends Controller
     public function edit($id)
     {
         //
+        
     }
 
     /**

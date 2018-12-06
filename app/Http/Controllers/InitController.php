@@ -13,8 +13,8 @@ class InitController extends Controller
      */
     public function index()
     {   
-        $posts = Post::all();
-        return view('/inicio')->with('posts', $posts);
+        // $posts = Post::all();
+        // return view('/inicio')->with('posts', $posts);
     }
 
     /**
