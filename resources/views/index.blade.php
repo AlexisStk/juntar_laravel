@@ -5,13 +5,9 @@
     <title>JuntAr!</title>
 </head>
 
-<body>
-
-    <div class="mainHeader">
+<body class="bodyAzul">
 
         @include('layouts.navbar')
-
-    </div>
 
     <div class="container">
 
@@ -30,7 +26,7 @@
                         <li>¿Estás buscando jugadores para un partido de futbol?</li>
                     </ul>
 
-                <a type="button" class="btn btn-secundary btn-lg btn-block" href="/register" role="button">¡Registrate!</a>
+                    <a href="/register" class="btn btn-outline-light btn-lg btn-block">¡Registrate!</a>
                 </div>
                 
             </div>
@@ -38,7 +34,8 @@
         </div>
 
     </div>
-
+    <br>
+    <br>
     @include('layouts.footer')
     @include('layouts.scripts')
 
