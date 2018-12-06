@@ -8,5 +8,7 @@
     @include('layouts.navbar')
     {{--@include('layouts.footer')--}}
     @include('layouts.scripts')
+
+    
 </body>
 </html>

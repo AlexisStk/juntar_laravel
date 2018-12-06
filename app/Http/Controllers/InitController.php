@@ -12,8 +12,9 @@ class InitController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('/inicio');
+    {   
+        $posts = Post::all();
+        return view('/inicio')->with('posts', $posts);
     }
 
     /**
