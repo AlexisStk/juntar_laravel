@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 Use App\Group;
 Use App\User;
+Use App\RequestGroup;
 
 class GroupsController extends Controller
 {
@@ -163,10 +164,29 @@ class GroupsController extends Controller
 
     }
 
-    public function request($id)
+    public function requestGroup($id)
     {
-        // $group = Group::find($id)
+        $requestData = [
+            'group_id' => $id,
+            'user_id' => auth()->user()->id
+        ];
 
+        $requestExist = RequestGroup::where('group_id',$id)
+        ->where('user_id',$requestData['user_id'])
+        ->take(1)
+        ->get();
 
+        if(count($requestExist)){
+            // dd($requestExist[0]->group_id);
+            //si llego hasta acá, quiere decir que hay una solicitud activa que coincide con la que queremos hacer.
+            //cortamos acá.
+            return redirect('/grupos');
+        }
+
+        $requestGroup = new RequestGroup($requestData);
+
+        $requestGroup->save();
     }
+
+
 }
