@@ -1,4 +1,5 @@
-        
+
+       <div class="blanco"> 
         <hr>
             {{ $group->title }} <br>
             {{ $group->description }} <br>
@@ -10,3 +11,4 @@
                 <a href="/grupos/editar/$group->id">Editar Grupo</a>
             @endif
         <hr>
+       </div>

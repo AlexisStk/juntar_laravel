@@ -4,7 +4,7 @@
     @include('layouts.head')
     <title>Grupos!</title>
 </head>
-<body class="fondoAnimado">
+<body class="bodyAzul">
     {{-- @include('layouts.navbar') --}}
     <nav class="navbar fixed-top navbar-expand-md navbar-dark bg-dark">
         <div class="container">
@@ -45,28 +45,38 @@
     </div>
 
 </nav>
-
-    <div class="container py=6">
+<br>
         <br>
         <br>
+        <br>    
         <br>
-
-        @foreach($groups as $group)
-        <hr>
-            {{ $group->title }} <br>
+<div class="card" style="width: 18rem;">
+        
+    <img class="card-img-top" src="{{ asset ('svg/prueba.png') }}" alt="Card image cap">
+        <div class="card-body">
+          
+          @foreach($groups as $group)
+        <h5 class="card-title">{{ $group->title }}</h5> <br>
             {{ $group->description }} <br>
             {{ $group->place }} <br>
             {{ $group->date }} <br>
             {{ $group->limit }} <br>
 
             @if($group->user_id == $id)  
-                <a href="/grupos/edit/{{ $group->id  }}">Sos creador de este grupo</a>
+                <a class="btn btn-primary btn-sm" href="/grupos/edit/{{ $group->id  }}">Sos creador de este grupo</a>
             @else
                 {{-- //si no es el creador, puede pedir el ingreso. --}}
                 <a href="/grupos/request/{{ $group->id }}">Solicitar ingreso al grupo</a>
             @endif
-        <hr>
         @endforeach
+        </div>
+      </div>
+    
+    
+      <div class="container py=6 blanco ">
+        
+
+        
     </div>
 </body>
 </html>

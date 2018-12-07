@@ -30,18 +30,18 @@
                     </li>
                     
                     <li class="nav-item">
-                        <a class="nav-link" href="/grupos">Mas Grupos!</a>
+                        <a class="nav-link" href="/grupos">Mis Grupos!</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="/perfil">Mi Perfil</a>
+                        <a class="nav-link" href="/perfil">{{ Auth::user()->name }}</a>
                     </li>
 
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('logout') }}"
                            onclick="event.preventDefault();
                                          document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
+                            {{ __('Cerrar Sesion') }}
                         </a>
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
