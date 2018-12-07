@@ -5,10 +5,10 @@ html {
 
 body{
     font-family:sans-serif;
-    background-repeat: repeat;
+    /*background-repeat: repeat;/*
     /*background-size: 4%;*/
-    background-color:#FAFAFA;
-    background-image: url(../svg/fondo4.png);
+    /*background-color:#FAFAFA;
+    background-image: url(../svg/fondo4.png);*/
     margin: 0;
     margin-bottom: 40px;
 }
@@ -126,7 +126,7 @@ footer {
 
 .fondoAnimado{
     color: white;
-    border-top: 8px solid crimson;
+    /*border-top: 8px solid crimson;*/
     background-color: #c91d61;
     background: linear-gradient(20deg,blue,crimson,purple); /*Change colors as you want*/
     background-size: 1000% 1000% !important;
