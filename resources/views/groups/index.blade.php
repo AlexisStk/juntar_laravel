@@ -63,7 +63,7 @@
                 <a href="/grupos/edit/{{ $group->id  }}">Sos creador de este grupo</a>
             @else
                 {{-- //si no es el creador, puede pedir el ingreso. --}}
-                <a href="#">Solicitar ingreso al grupo</a>
+                <a href="/grupos/request/{{ $group->id }}">Solicitar ingreso al grupo</a>
             @endif
         <hr>
         @endforeach

@@ -162,4 +162,11 @@ class GroupsController extends Controller
         return redirect('/grupos');
 
     }
+
+    public function request($id)
+    {
+        // $group = Group::find($id)
+
+
+    }
 }
