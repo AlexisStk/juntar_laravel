@@ -84,14 +84,23 @@ class GroupsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($group_id)
     {
         //
-        $group = Group::find($id);
+        $pendingRequest = null;
+        $group = Group::find($group_id);
 
-        $id = $id = auth()->user()->id;
+        $user_id = auth()->user()->id;
 
-        return view('groups.show')->with('group',$group)->with('id',$id);
+        // if($group_id == $user_id){
+        //     $pendingRequest = 
+        // }
+
+        // $pen = requestGroup::where('group_id',$group_id)->get();
+
+        // dd($pen);
+
+        return view('groups.show')->with('group',$group)->with('id',$user_id);
     }
 
     /**
@@ -169,6 +178,7 @@ class GroupsController extends Controller
         $requestData = [
             'group_id' => $id,
             'user_id' => auth()->user()->id
+
         ];
 
         $requestExist = RequestGroup::where('group_id',$id)

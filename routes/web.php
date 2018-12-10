@@ -30,11 +30,15 @@ Route::get('/grupos', 'GroupsController@index')->middleware('auth');    // Todos
 Route::get('/grupos/create', 'GroupsController@create')->middleware('auth'); // Formulario de Crear Grupo
 Route::post('/grupos/create', 'GroupsController@store')->middleware('auth'); // Guardar el grupo
 Route::get('/grupos/show/{id}', 'GroupsController@show')->middleware('auth');    // Ver un grupo determinado
+
 Route::get('/grupos/edit/{id}', 'GroupsController@edit')->middleware('auth');    // Ver un grupo determinad
 Route::post('/grupos/edit/{id}', 'GroupsController@update')->middleware('auth');    // Guardo el grupo con edicion.
 Route::get('/grupos/delete/{id}', 'GroupsController@destroy')->middleware('auth'); //Desactivamos el grupo actual.
 
 Route::get('/grupos/request/{id}', 'GroupsController@requestGroup')->middleware('auth');
+
+Route::get('/grupos/request/{id}/accept', 'RequestGroupController@acceptRequest')->middleware('auth');
+Route::get('/grupos/request/{id}/reject', 'RequestGroupController@rejectRequest')->middleware('auth');
 
 
 //Perfil Usuarios

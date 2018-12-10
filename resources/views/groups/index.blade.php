@@ -20,6 +20,7 @@
             {{ $group->limit }} <br>
 
             @if($group->user_id == $id)  
+            {{ count($group->pendingRequest()->get()) . ' solicitudes pendientes.' }} <br>
                 <a class="btn btn-primary btn-sm" href="/grupos/edit/{{ $group->id  }}">Sos creador de este grupo</a>
             @else
                 {{-- //si no es el creador, puede pedir el ingreso. --}}

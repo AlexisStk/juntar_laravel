@@ -5,6 +5,8 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
+use App\User;
+
 class Group extends Model
 {
 
@@ -19,12 +21,14 @@ class Group extends Model
 
     public function user()
     {
-        return $this->hasMany(User::class);
+        return $this->belongsToMany(User::class);
     }
 
-    public function getAllGroups()
+    public function pendingRequest()
     {
-        return $this->orderBy('date');
+
+        return $this->hasMany(RequestGroup::class)->where('deleted_at',null);
+
     }
 
 }
