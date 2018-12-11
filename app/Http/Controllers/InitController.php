@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+Use App\Group;
+Use App\User;
+Use App\RequestGroup;
+
 class InitController extends Controller
 {
     /**

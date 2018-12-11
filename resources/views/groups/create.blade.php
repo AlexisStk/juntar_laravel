@@ -1,5 +1,8 @@
 @extends('master')
 @section('content')
+<head>
+    <title>Organiza tu Juntada</title>
+</head>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">

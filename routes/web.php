@@ -23,7 +23,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::view('/faqs', 'faqs');
 
 //Inicio Se muestra las publicaciones de los grupos que estas
-Route::get('/inicio', 'InitController@index');
+Route::get('/inicio', 'InitController@index')->middleware('auth');
 
 //Grupos -- Lo podríamos hacer con grupo de rutas no ?
 Route::get('/grupos', 'GroupsController@index')->middleware('auth');    // Todos los grupos activos
@@ -42,8 +42,8 @@ Route::get('/grupos/request/{id}/reject', 'RequestGroupController@rejectRequest'
 
 
 //Perfil Usuarios
-Route::get('/perfil', 'ProfileController@index'); //Perfil propio
-Route::get('/perfil/{id}', 'ProfileController@show'); //Perfil de id
+Route::get('/perfil', 'ProfileController@index')->middleware('auth'); //Perfil propio
+Route::get('/perfil/{id}', 'ProfileController@show')->middleware('auth'); //Perfil de id
 
 
 
