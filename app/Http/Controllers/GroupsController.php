@@ -85,15 +85,11 @@ class GroupsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($group_id)
+    public function show($id)
     {
         //
-        // $pendingRequest = null;
-        $group = Group::find($group_id);
-
-        // $integrantes = new GroupUser;
-
-        // dd($integrantes->user);
+        
+        $group = Group::find($id);
         
         $user_id = auth()->user()->id;
 

@@ -23,7 +23,7 @@ class GroupUserController extends Controller
 
         $group = Group::find($groupUser->id);
 
-        if(!($group->id == auth()->user()->id)){
+        if(!($group->user_id == auth()->user()->id)){
             //Este ladri no es el creador del grupo, lo sacamos a los tiros.
             return redirect('/grupos');
         }
