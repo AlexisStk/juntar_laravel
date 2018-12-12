@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 class CreateGroupsTable extends Migration
 {
     /**
@@ -22,6 +24,8 @@ class CreateGroupsTable extends Migration
             $table->date('limit');
 
             $table->boolean('active')->nullable()->default(true);  //Está activo el grupo?
+
+            $table->softDeletes()->nullable(); //Deberiamos usar esto en lugar de active.
 
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');

@@ -4,12 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 use App\User;
+use App\GroupUser;
 
 class Group extends Model
 {
-
+    use SoftDeletes;
     /**
      * The attributes that are mass assignable.
      *
@@ -19,6 +21,8 @@ class Group extends Model
         'title', 'description', 'date', 'place', 'limit', 'user_id'
     ];
 
+    protected $dates = ['deleted_at'];
+
     public function user()
     {
         return $this->belongsToMany(User::class);
@@ -26,9 +30,14 @@ class Group extends Model
 
     public function pendingRequest()
     {
+        // return $this->hasMany(RequestGroup::class)->where('deleted_at',null);
+        // Si sigo usando querybuilder arruino todo.
+        return $this->hasMany(RequestGroup::class);
+    }
 
-        return $this->hasMany(RequestGroup::class)->where('deleted_at',null);
-
+    public function friendships()
+    {
+        return $this->hasMany(GroupUser::class);
     }
 
 }

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 use App\Group;
+Use App\GroupUser;
 
 class RequestGroupController extends Controller
 {
@@ -88,7 +89,7 @@ class RequestGroupController extends Controller
 
             $this->update($requestGroup);
 
-            $this->prueba($id);
+            $this->saveGroupUserTable($id); // Esta linea debería encargarse de cargar la data en la tabla pivote 
 
             $this->destroy($id);
 
@@ -97,17 +98,18 @@ class RequestGroupController extends Controller
 
     }
 
-    public function prueba($request_id){
+    public function saveGroupUserTable($request_id){
 
         $requestGroup = RequestGroup::find($request_id);
 
-
-        DB::table('group_user')->insert([
+        $requestData = [
             'group_id' => $requestGroup->group_id,
-            'user_id' => $requestGroup->user_id,
-            // 'create_at' => asd,
-            // 'updated_at' => asd
-        ]);
+            'user_id' => $requestGroup->user_id
+        ];
+
+        $groupUser = new GroupUser($requestData);
+
+        $groupUser->save();
 
     }
 

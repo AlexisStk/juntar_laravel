@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 Use App\Group;
 Use App\User;
 Use App\RequestGroup;
+Use App\GroupUser;
 
 class GroupsController extends Controller
 {
@@ -87,20 +88,19 @@ class GroupsController extends Controller
     public function show($group_id)
     {
         //
-        $pendingRequest = null;
+        // $pendingRequest = null;
         $group = Group::find($group_id);
 
+        // $integrantes = new GroupUser;
+
+        // dd($integrantes->user);
+        
         $user_id = auth()->user()->id;
 
-        // if($group_id == $user_id){
-        //     $pendingRequest = 
-        // }
-
-        // $pen = requestGroup::where('group_id',$group_id)->get();
-
-        // dd($pen);
-
-        return view('groups.show')->with('group',$group)->with('id',$user_id);
+        return view('groups.show')
+        ->with('group',$group)
+        ->with('id',$user_id);
+        // ->with('integrantes',$integrantes);
     }
 
     /**
@@ -117,9 +117,11 @@ class GroupsController extends Controller
         //Si no es el creador del grupo, no lo dejamos editar nada.
         if(!($group->user_id == auth()->user()->id)){
             return redirect("/grupos");
-        }elseif(!($group->active)){ //Si el grupo no se encuentra activo, vuelve a index
-            return redirect("/grupos");
+        // }elseif(!($group->active)){ //Si el grupo no se encuentra activo, vuelve a index
+        //     return redirect("/grupos");
+        // Ya no deberiamos usar ese elseif, porque usamos soft_delete..
         }
+
 
         return view('groups.edit')->with('group',$group);
     }
@@ -135,6 +137,11 @@ class GroupsController extends Controller
     {
         //
         $group = Group::find($id);
+
+        if(!($group->user_id == auth()->user()->id)){
+            //por las dudas, ya ni me acuerdo si para llegar acá verifique esto..
+            return redirect('/grupos');
+        }
 
         $group->title = $request->input('title');
         $group->description  = $request->input('description');
@@ -159,8 +166,9 @@ class GroupsController extends Controller
         //Si no es el creador del grupo, no lo dejamos editar nada.
         if(!($group->user_id == auth()->user()->id)){
             return redirect("/grupos");
-        }elseif(!($group->active)){ //Si el grupo no se encuentra activo, vuelve a index
-            return redirect("/grupos");
+        // }elseif(!($group->active)){ //Si el grupo no se encuentra activo, vuelve a index
+        //     return redirect("/grupos");
+        // se supone que ya no usamos esto, porque usamos soft_delete.
         }
 
         //Para llegar a este punto, el usuario tiene que estar absolutamente seguro 
@@ -169,7 +177,8 @@ class GroupsController extends Controller
 
         $group->save();
 
-        return redirect('/grupos');
+        // chequear si funciona..
+        $group->delete();
 
     }
 
@@ -188,14 +197,18 @@ class GroupsController extends Controller
 
         if(count($requestExist)){
             // dd($requestExist[0]->group_id);
-            //si llego hasta acá, quiere decir que hay una solicitud activa que coincide con la que queremos hacer.
+            //si llegó hasta acá, quiere decir que hay una solicitud activa que coincide con la que queremos hacer.
             //cortamos acá.
             return redirect('/grupos');
         }
 
         $requestGroup = new RequestGroup($requestData);
 
+        //Ojo! Approved es nullable y default = false.
+
         $requestGroup->save();
+
+        return redirect('/grupos');
     }
 
 

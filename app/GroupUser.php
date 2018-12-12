@@ -8,8 +8,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use App\User;
 use App\Group;
 
-class RequestGroup extends Model
+class GroupUser extends Model
 {
+
     use SoftDeletes;
 
     /**
@@ -18,7 +19,7 @@ class RequestGroup extends Model
      * @var array
      */
     protected $fillable = [
-        'group_id', 'user_id', 'approved'
+        'group_id', 'user_id'
     ];
 
     protected $dates = ['deleted_at'];
@@ -32,6 +33,4 @@ class RequestGroup extends Model
     {
         return $this->belongsTo(User::class);
     }
-
-
 }

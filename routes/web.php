@@ -35,10 +35,15 @@ Route::get('/grupos/edit/{id}', 'GroupsController@edit')->middleware('auth');   
 Route::post('/grupos/edit/{id}', 'GroupsController@update')->middleware('auth');    // Guardo el grupo con edicion.
 Route::get('/grupos/delete/{id}', 'GroupsController@destroy')->middleware('auth'); //Desactivamos el grupo actual.
 
+Route::get('/grupos/removeuser/{id}', 'GroupUserController@removeUser')->middleware('auth'); //echamos a un usuario del grupo.
+
+
 Route::get('/grupos/request/{id}', 'GroupsController@requestGroup')->middleware('auth');
 
 Route::get('/grupos/request/{id}/accept', 'RequestGroupController@acceptRequest')->middleware('auth');
 Route::get('/grupos/request/{id}/reject', 'RequestGroupController@rejectRequest')->middleware('auth');
+
+
 
 
 //Perfil Usuarios
