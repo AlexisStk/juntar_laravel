@@ -17,7 +17,12 @@ class InitController extends Controller
      */
     public function index()
     {   
-        return view('/inicio');
+        $groups = Group::where('active',true)->get();
+
+        $id = auth()->user()->id;
+
+        return view('inicio')->with('groups',$groups)->with('id',$id);
+
     }
 
     /**

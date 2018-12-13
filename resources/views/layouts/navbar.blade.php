@@ -30,7 +30,7 @@
                     </li>
                     
                     <li class="nav-item">
-                        <a class="nav-link" href="/grupos">Mis Grupos!</a>
+                        <a class="nav-link" href="/grupos">Grupos!</a>
                     </li>
 
                     <li class="nav-item">
