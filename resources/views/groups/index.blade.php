@@ -9,7 +9,8 @@
         <br>
 
         <div class="container py=6 blanco ">
-                
+            
+            <a href="/grupos/create">Crea tu propio grupo.</a>
             
                 <div class="row">
                         @foreach($groups as $group)
@@ -18,14 +19,14 @@
                             <img class="card-img-top" src="{{ asset ('svg/prueba.png') }}" alt="Card image cap">
                                 <div class="card-body">
                                 
-                                <h5 class="card-title">{{ $group->title }}</h5> <br>
+                                <h5 class="card-title"> <a href="/grupos/show/ {{ $group->id }} ">{{ $group->title }}</a></h5> <br>
                                     {{ $group->description }} <br>
                                     {{ $group->place }} <br>
                                     {{ $group->date }} <br>
                                     {{ $group->limit }} <br>
 
                                     @if($group->user_id == $id)  
-                                    {{ count($group->pendingRequest()->get()) . ' solicitudes pendientes.' }} <br>
+                                        {{ $group->pendingRequest()->count() . ' solicitudes pendientes.' }} <br>
                                         <a class="btn btn-primary btn-sm" href="/grupos/edit/{{ $group->id  }}">Sos creador de este grupo</a>
                                     @else
                                         {{-- si no es el creador, puede pedir el ingreso. --}}

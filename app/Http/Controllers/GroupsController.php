@@ -8,6 +8,7 @@ Use App\Group;
 Use App\User;
 Use App\RequestGroup;
 Use App\GroupUser;
+Use App\Post;
 
 class GroupsController extends Controller
 {
@@ -183,7 +184,6 @@ class GroupsController extends Controller
         $requestData = [
             'group_id' => $id,
             'user_id' => auth()->user()->id
-
         ];
 
         $requestExist = RequestGroup::where('group_id',$id)
@@ -206,6 +206,40 @@ class GroupsController extends Controller
 
         return redirect('/grupos');
     }
+
+    public function sendNews()
+    {
+        return view('groups.news');
+    }
+
+    public function sendComment(Request $request)
+    {
+        // $groupUser = GroupUser::find($id);
+
+        //existe la relacion entre usuario y grupo??
+
+        $groupUser = GroupUser::where('user_id',auth()->user()->id)
+        ->where('group_id',$request->group_id)->get();
+
+        if(!($groupUser)){
+            //no hay relacion entre usuario y grupo, no lo dejamos postear nada.
+            return redirect('/grupos/show/' . $request->group_id);
+        }
+
+        $postData = [
+            'content' => $request->content,
+            'user_id' => auth()->user()->id,
+            'group_id' => $request->group_id,
+        ];
+
+        $comentario = new Post($postData);
+
+        $comentario->save();
+
+        return redirect('/grupos/show/' . $request->group_id);
+
+    }
+    //falta la posibilidad de eliminar comentarios por parte del creador del grupo.
 
 
 }

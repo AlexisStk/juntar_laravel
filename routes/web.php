@@ -11,10 +11,23 @@
 |
 */
 
+
+/* Aclaraciones de las rutas:
+
+/           -> nos lleva a index. (Si estás deslogueado te da la opción de registrarte, si estás logueado te lleva a /inicio y te muestra las ultimas publicaciones de los grupos en los grupos que participas.)
+
+/perfil/id  -> nos lleva a nuestro perfil.
+
+/grupos     -> nos muestra todos los grupos que existen.
+
+
+
+*/
 Auth::routes();
 
 // Vista Principal
-Route::view('/', 'index');
+// Si no estás logueado, te muestra el index, si estás logueado, te lleva a ver las ultimas actividades del grupo.
+Route::get('/', 'InitController@index');
 
 // Login
 Route::get('/home', 'HomeController@index')->name('home');
@@ -22,7 +35,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 // Preguntas Frecuentes
 Route::view('/faqs', 'faqs');
 
-//Inicio Se muestra las publicaciones de los grupos que estas
+//Inicio -- Se muestra las publicaciones de los grupos que estas
 Route::get('/inicio', 'InitController@index')->middleware('auth');
 
 //Grupos -- Lo podríamos hacer con grupo de rutas no ?
@@ -43,16 +56,14 @@ Route::get('/grupos/request/{id}', 'GroupsController@requestGroup')->middleware(
 Route::get('/grupos/request/{id}/accept', 'RequestGroupController@acceptRequest')->middleware('auth');
 Route::get('/grupos/request/{id}/reject', 'RequestGroupController@rejectRequest')->middleware('auth');
 
+Route::get('/grupos/news', 'GroupsController@sendNews')->middleware('auth');
+
+Route::post('/grupos/comment', 'GroupsController@sendComment')->middleware('auth');
+
+
 
 
 
 //Perfil Usuarios
 Route::get('/perfil', 'ProfileController@index')->middleware('auth'); //Perfil propio
 Route::get('/perfil/{id}', 'ProfileController@show')->middleware('auth'); //Perfil de id
-
-
-
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

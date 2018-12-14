@@ -26,10 +26,37 @@
                     <a href="/profile/{{ $friendship->user->id }}"> {{ $friendship->user->name }} </a>
                     <a href="/grupos/removeuser/{{ $friendship->id }} "> {{ 'eliminar ' }} </a> <br>
                 @endforeach
-
             @endif
 
+            <h5>Comentarios!!!!!!!</h5>
 
+                @foreach($group->comments as $comment)
+                <hr>
+                    {{ 'Usuario:' . $comment->user->name }} <br>
+                    {{ 'Comentario: ' . $comment->content }} <br>
+                <hr>
+                @endforeach
+
+
+            <form action="/grupos/comment" method="POST">
+            @csrf
+
+                <div class="form-group">
+                    <input type="text" name="content" class="form-control">
+                </div>
+
+                <div class="">
+                    <input type="hidden" name="group_id" value="{{ $group->id }}">
+                </div>
+
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">
+                        {{ __('Enviar Comentario') }}
+                    </button>
+                </div>
+
+            </form>
 
         <hr>
        </div>

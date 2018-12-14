@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 use App\User;
 use App\GroupUser;
+use App\Post;
 
 class Group extends Model
 {
@@ -38,6 +39,11 @@ class Group extends Model
     public function friendships()
     {
         return $this->hasMany(GroupUser::class);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Post::class);
     }
 
 }
