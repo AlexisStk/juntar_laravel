@@ -27,7 +27,7 @@ Auth::routes();
 
 // Vista Principal
 // Si no estás logueado, te muestra el index, si estás logueado, te lleva a ver las ultimas actividades del grupo.
-Route::get('/', 'InitController@index');
+Route::view('/', 'index');
 
 // Login
 Route::get('/home', 'HomeController@index')->name('home');

@@ -17,17 +17,16 @@ class InitController extends Controller
      */
     public function index()
     {   
-        // $groups = Group::where('active',true)->get();
-        // $id = auth()->user()->id;
-        // return view('inicio')->with('groups',$groups)->with('id',$id);
+         $groups = Group::where('active',true)->get();
+         $id = auth()->user()->id;
+         return view('inicio')->with('groups',$groups)->with('id', $id);
 
-        if(auth()->user()){
+        //if(auth()->user()){
             //está logueado??
             // return view('groups.news');
-            return redirect('/grupos/news');
-        };
+        //    return redirect('/grupos/news');
+        //};
 
-        return view('index');
     }
 
     /**

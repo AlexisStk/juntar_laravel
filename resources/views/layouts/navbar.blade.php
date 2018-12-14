@@ -14,7 +14,7 @@
                     @if(!(Auth::check()))
                 
                     <li class="nav-item">
-                    <a class="nav-link" href="/home">Loguear</a>
+                    <a class="nav-link" href="/login">Loguear</a>
                     </li> 
 
                     <li class="nav-item">
@@ -26,7 +26,7 @@
                     @endif
                     @if(Auth::check())
                     <li class="nav-item">
-                        <a class="nav-link" href="/inicio">Inicio</a>
+                        <a class="nav-link" href="/home">Inicio</a>
                     </li>
                     
                     <li class="nav-item">

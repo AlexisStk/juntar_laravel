@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+Use App\Group;
+Use App\User;
+Use App\RequestGroup;
+
 class HomeController extends Controller
 {
     /**
@@ -23,6 +27,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('groups.news');
+        $groups = Group::where('active',true)->get();
+         $id = auth()->user()->id;
+         return view('home')->with('groups',$groups)->with('id', $id);
     }
 }

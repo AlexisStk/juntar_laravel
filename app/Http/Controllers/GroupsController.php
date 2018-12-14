@@ -24,7 +24,7 @@ class GroupsController extends Controller
 
         //Sólo traemos de la DB los grupos que esten activos.
         $groups = Group::where('active',true)->get();
-
+;
         $id = auth()->user()->id;
 
         return view('groups.index')->with('groups',$groups)->with('id',$id);
