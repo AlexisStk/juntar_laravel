@@ -177,6 +177,8 @@ class GroupsController extends Controller
         // chequear si funciona..
         $group->delete();
 
+        return redirect('/grupos');
+
     }
 
     public function requestGroup($id)

@@ -35,8 +35,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 // Preguntas Frecuentes
 Route::view('/faqs', 'faqs');
 
-//Inicio -- Se muestra las publicaciones de los grupos que estas
-Route::get('/inicio', 'InitController@index')->middleware('auth');
 
 //Grupos -- Lo podríamos hacer con grupo de rutas no ?
 Route::get('/grupos', 'GroupsController@index')->middleware('auth');    // Todos los grupos activos

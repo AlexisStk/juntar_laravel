@@ -82,13 +82,14 @@
                             <div class="col-md-6 offset-md-4">
 
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Editar Grupo') }}
+                                    {{ __('Guardar Edición') }}
                                 </button>
-
+                                <a href="/grupos/delete/{{$group->id}}" class="btn btn-danger">Borrar Grupo</a>
                             </div>
+                            
                         </div>
 
-                        <a href="/grupos/delete/{{$group->id}}">Boton precario</a>
+                        
                         
                     </form>
                 </div>
