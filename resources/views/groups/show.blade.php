@@ -1,3 +1,6 @@
+@extends('master')
+@section('content')
+    
 
        <div class="blanco"> 
         <hr>
@@ -60,3 +63,4 @@
 
         <hr>
        </div>
+       @endsection
