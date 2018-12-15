@@ -18,10 +18,11 @@
         <div class="row">
 
             <div class="col-12 col-sm-12-col-md-12 col-lg-12">
-
+                <br>
+                <br>    
+                <h1>Preguntas Frecuentes:</h1>
+                
                 <div class="propPanelFAQS">
-
-                    <h2>Preguntas Frecuentes:</h2>
 
                     <p class="propPregunta">¿Qué es junt<span class="propJuntar">AR!</span>?</p>
                     <p class="propRespuesta">juntAR es una red social dedicada a formar grupos de gente interesada en un mismo tema.</p>
@@ -54,13 +55,6 @@
                     <p class="propRespuesta">Sí</p>
                     <p class="propPregunta">¿Por qué?</p>
                     <p class="propRespuesta"><span class="tachar">Porque nos gusta ponernos la gorra</span>  Porque todos los usuarios en su perfil tienen un historial de los grupos en los que partició y a los eventos que asistió.</p>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
 
                 </div>
             </div>

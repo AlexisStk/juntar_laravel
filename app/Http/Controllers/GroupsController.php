@@ -148,7 +148,7 @@ class GroupsController extends Controller
 
         $group->save();
 
-        return redirect('/grupos/show/$id');
+        return redirect('/grupos');
     }
 
     /**
@@ -211,7 +211,7 @@ class GroupsController extends Controller
 
     public function sendNews()
     {
-        return view('groups.news');
+        return view('home');
     }
 
     public function sendComment(Request $request)

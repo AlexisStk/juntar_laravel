@@ -14,8 +14,8 @@
             
                 <div class="row cartas">
                         @foreach($groups as $group)
-                    <div class="card col-12 col-md-7 col-lg-3 carta">
-        
+                    <div class="col-12 col-md-6 col-xs-4 carta">
+                        <div class="card fondoCard">
                             <img class="card-img-top" src="{{ asset ('svg/negro.png') }}" alt="Card image cap">
                                 <div class="card-body">
                                 
@@ -33,6 +33,7 @@
                                         <br>
                                         <a href="/grupos/request/{{ $group->id }}" class="btn btn-success">Solicitar ingreso al grupo</a>
                                     @endif
+                                </div>
                                 </div>
                     </div>
                     @endforeach
