@@ -58,10 +58,7 @@ Route::get('/grupos/news', 'GroupsController@sendNews')->middleware('auth');
 
 Route::post('/grupos/comment', 'GroupsController@sendComment')->middleware('auth');
 
-
-
-
-
 //Perfil Usuarios
-Route::get('/perfil', 'ProfileController@index')->middleware('auth'); //Perfil propio
-Route::get('/perfil/{id}', 'ProfileController@show')->middleware('auth'); //Perfil de id
+// Route::get('/perfil', 'ProfileController@show')->middleware('auth'); //Perfil propio
+Route::get('/perfil/{id?}', 'ProfileController@show')->middleware('auth'); //Perfil de id
+Route::get('/perfil/edit/{id}', 'ProfileController@edit')->middleware('auth'); //Perfil de id

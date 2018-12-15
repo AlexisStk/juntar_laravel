@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 
 Use App\Group;
 Use App\User;
+use App\GroupUser;
 Use App\RequestGroup;
+use App\Post;
 
 class HomeController extends Controller
 {
@@ -27,8 +29,31 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $groups = Group::where('active',true)->get();
-         $id = auth()->user()->id;
-         return view('home')->with('groups',$groups)->with('id', $id);
+        //Acá vamos a mostrar las novedades de los grups de los que sos parte.
+        /**La logica sería:
+         * Obtenemos lista de grupos que sos parte
+         * los recorremos y vamos enviando el ultimo comentario.
+         */
+        $groups = null;
+        $userGroups = GroupUser::where('user_id',auth()->user()->id)
+        ->where('deleted_at',null)
+        ->get();
+        
+        if(count($userGroups)){
+            for($i=0;$i<=count($userGroups)-1;$i++){
+                // dd($userGroups[$i]->group_id);
+                $arrGroups[$i] = GroupUser::find($userGroups[$i]->group_id);
+            }
+
+            $groups = new Group($arrGroups);
+
+        $id = auth()->user()->id;
+
+        return view('home')->with('groups',$groups->get())->with('id', $id);
+        }else{
+            $id = auth()->user()->id;
+
+            return view('home')->with('groups',null)->with('id',$id);
+        }
     }
 }

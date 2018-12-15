@@ -17,9 +17,8 @@ class ProfileController extends Controller
     {
         // return view('profile');
 
-        $user = User::find(auth()->user()->id);
-        
-        return view('profile')->with('user',$user);
+        //Aca debemos mandar la lista de usuarios completa.
+
     }
 
     /**
@@ -49,10 +48,14 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id = null)
     {
         //
+        if(!($id)){
+            $id = auth()->user()->id;
+        }
         $user = User::find($id);
+
         return view('profile')->with('user',$user);
     }
 
@@ -65,7 +68,13 @@ class ProfileController extends Controller
     public function edit($id)
     {
         //
-        
+        $user = User::find($id);
+
+        if($user->id == auth()->user()->id || auth()->user()->role == 7){
+            //Si el usuario es el usuario en si, o es ADM:
+            dd('sos el usaurio real o sos admin');
+        }
+
     }
 
     /**

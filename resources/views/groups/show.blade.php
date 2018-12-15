@@ -10,9 +10,9 @@
             {{ $group->date }} <br>
             {{ $group->limit }} <br>
 
-            @if($group->user_id == $id)
+            @if($group->user_id == $user->id || $user->role == 7)
                 <a href="/grupos/edit/{{$group->id}}">Editar Grupo</a> <br>
-                {{ 'Solicitudes de ingreso al grupo pendientes: ' . count($group->pendingRequest()->get()) }} <br>
+                {{ 'Solicitudes de ingreso al grupo pendientes: ' . $group->pendingRequest()->count() }} <br>
 
                 @foreach($group->pendingRequest as $pendingRequest)
                     <a href="/profile/{{ $pendingRequest->user_id }}"> {{ $pendingRequest->user->name }} </a>

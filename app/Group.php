@@ -46,4 +46,9 @@ class Group extends Model
         return $this->hasMany(Post::class);
     }
 
+    public function lastPost()
+    {
+        return $this->hasMany(Post::class);
+    }
+
 }

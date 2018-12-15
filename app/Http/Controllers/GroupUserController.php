@@ -21,7 +21,10 @@ class GroupUserController extends Controller
             return redirect('/grupos');
         }
 
-        $group = Group::find($groupUser->id);
+        // Arreglo bug, $groupUser -> id buscaba el id de la relacion grupo-usuario, nosotros buscamos el id del grupo.
+        $group = Group::find($groupUser->group_id);
+
+
 
         if(!($group->user_id == auth()->user()->id)){
             //Este ladri no es el creador del grupo, lo sacamos a los tiros.

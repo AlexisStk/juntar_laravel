@@ -68,13 +68,23 @@ class GroupsController extends Controller
 
         $this->validate($request,$rules,$message);
 
-        $userId = auth()->user()->id;
+        $user_id = auth()->user()->id;
 
-        $request['user_id'] = $userId;
+        $request['user_id'] = $user_id;
 
         $group = new Group($request->all());
 
         $group->save();
+
+        //Una vez creado el grupo, creamos la relacion en gruop_user
+        $groupUserData = [
+            'user_id' => $user_id,
+            'group_id' =>  $group->id
+        ];
+        
+        $groupUser = new GroupUser($groupUserData);
+
+        $groupUser->save();
 
         return redirect('/grupos');
 
@@ -92,11 +102,11 @@ class GroupsController extends Controller
         
         $group = Group::find($id);
         
-        $user_id = auth()->user()->id;
+        $user = auth()->user();
 
         return view('groups.show')
         ->with('group',$group)
-        ->with('id',$user_id);
+        ->with('user',$user);
         // ->with('integrantes',$integrantes);
     }
 
