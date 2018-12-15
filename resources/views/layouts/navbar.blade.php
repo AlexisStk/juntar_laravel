@@ -6,7 +6,7 @@
 
         <div class="collapse navbar-collapse" id="collapse_target">
 
-            <a class="navbar-brand"href="/"><img class="text-center" src="{{ asset ('svg/logo.png') }}"></a>
+        <a class="navbar-brand" href="/home"><img class="text-center" src="{{ asset ('svg/logo.png') }}"></a>
 
             <ul class="navbar-nav ml-auto">
 
@@ -14,14 +14,14 @@
                     @if(!(Auth::check()))
                 
                     <li class="nav-item">
-                    <a class="nav-link" href="/login">Loguear</a>
+                    <a class="nav-link" href="/login">Iniciar Sesion</a>
                     </li> 
 
                     <li class="nav-item">
                         <a class="nav-link" href="/register">Registrate</a>
                     </li> 
                     <li class="nav-item">
-                        <a class="nav-link" href="/faqs">FAQS</a>
+                        <a class="nav-link" href="/faqs">Preguntas Frecuentes</a>
                     </li>
                     @endif
                     @if(Auth::check())
@@ -30,7 +30,7 @@
                     </li>
                     
                     <li class="nav-item">
-                        <a class="nav-link" href="/grupos">Grupos!</a>
+                        <a class="nav-link" href="/grupos">Mas  Grupos</a>
                     </li>
 
                     <li class="nav-item">

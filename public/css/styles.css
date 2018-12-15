@@ -244,6 +244,14 @@ footer {
     color: #0062cc;
 }
 
+carta-contenedor {
+    margin: 30px;
+}
 .carta {
-    margin: 5px;
+    margin: 4px;
+    flex: 0 0 23%;
+}
+
+.cartas {
+    padding: 20px;
 }

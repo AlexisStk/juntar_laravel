@@ -7,7 +7,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header text-center text-body">{{ __('Crear Grupo') }}</div>
+                <div class="card-header text-center text-body list-group-item list-group-item-primary"> <h5> {{ __('Crear tu Grupo') }} </h5> </div>
 
                 <div class="card-body">
                     <form method="POST" action="">
@@ -43,7 +43,7 @@
                             <label for="date" class="col-md-4 col-form-label text-md-right text-body">{{ __('Fecha') }}</label>
 
                             <div class="col-md-6">
-                                <input id="date" type="text" class="form-control{{ $errors->has('date') ? ' is-invalid' : '' }}"  name="date" value="{{ old('date') }}" required autofocus>
+                                <input id="date" type="date" class="form-control{{ $errors->has('date') ? ' is-invalid' : '' }}"  name="date" value="{{ old('date') }}" required autofocus>
                                 @if($errors->has('date'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('date') }}</strong>
@@ -69,7 +69,7 @@
                             <label for="limit" class="col-md-4 col-form-label text-md-right text-body">{{ __('Fecha Limite') }}</label>
 
                             <div class="col-md-6">
-                                <input id="limit" type="text" class="form-control{{ $errors->has('limit') ? ' is-invalid' : '' }}" name="limit" value="{{ old('limit') }}" required autofocus>
+                                <input id="limit" type="date" class="form-control{{ $errors->has('limit') ? ' is-invalid' : '' }}" name="limit" value="{{ old('limit') }}" required autofocus>
                                 @if ($errors->has('limit'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('limit') }}</strong>
@@ -80,8 +80,8 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-
-                                <button type="submit" class="btn btn-primary">
+                                
+                                <button type="submit" class="btn btn-primary btn-block">
                                     {{ __('Crear Grupo') }}
                                 </button>
 

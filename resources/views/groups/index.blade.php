@@ -8,18 +8,18 @@
     @include('layouts.navbar')
         <br>
 
-        <div class="container py=6 blanco ">
+        <div class="container text-center ">
             
-            <a href="/grupos/create">Crea tu propio grupo.</a>
+            <a href="/grupos/create" class="btn btn-outline-light btn-block btn-lg">¡Crea tu propio grupo!</a>
             
-                <div class="row">
+                <div class="row cartas carta-contenedor">
                         @foreach($groups as $group)
-                    <div class="card col-12 col-md-6 col-lg-3 carta">
+                    <div class="card col-12 col-md-5 col-lg-3 carta">
         
-                            <img class="card-img-top" src="{{ asset ('svg/prueba.png') }}" alt="Card image cap">
+                            <img class="card-img-top" src="{{ asset ('svg/negro.png') }}" alt="Card image cap">
                                 <div class="card-body">
                                 
-                                <h5 class="card-title"> <a href="/grupos/show/ {{ $group->id }} ">{{ $group->title }}</a></h5> <br>
+                                <h5 class="card-title"> <a href="/grupos/show/ {{ $group->id }} " class="">{{ $group->title }}</a></h5> <br>
                                     {{ $group->description }} <br>
                                     {{ $group->place }} <br>
                                     {{ $group->date }} <br>
