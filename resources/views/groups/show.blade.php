@@ -11,7 +11,7 @@
             {{ $group->limit }} <br>
 
             @if($group->user_id == $id)
-                <a href="/grupos/editar/$group->id">Editar Grupo</a> <br>
+                <a href="/grupos/edit/{{$group->id}}">Editar Grupo</a> <br>
                 {{ 'Solicitudes de ingreso al grupo pendientes: ' . count($group->pendingRequest()->get()) }} <br>
 
                 @foreach($group->pendingRequest as $pendingRequest)

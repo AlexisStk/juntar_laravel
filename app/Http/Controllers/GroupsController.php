@@ -148,7 +148,8 @@ class GroupsController extends Controller
 
         $group->save();
 
-        return redirect('/grupos');
+        return redirect('/grupos/show/'. $group->id);
+        
     }
 
     /**
