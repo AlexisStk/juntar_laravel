@@ -1,11 +1,5 @@
 ***** Cosas Importantes *****
 
-    ** Para iniciar el proyecto crear una base de datos vacia **
-    ** Perfil muestra tus datos +edit **
-    ** inicio mostrar publicacion de los grupos que seguis **
-    ** /grupos muestra todos los grupos con sus publicaciones relevantes **
-    ** footer dinamico, parecido al navabar **
-    ** Novedades del grupos que seguis, aparece siempre el ultimo posteo hecho **
     ** Tabla pibot para los mensajes (dejar para el final) **
     ** Si estas logeado no poder entrar a la pagina / **
 
@@ -17,3 +11,13 @@ cuando lo agreguemos se arregla.
     ** /Perfil/id nos dirige al perfil de la persona (id). En la vista hay que hacer que si el perfil NO es tuyo, desaparezca el boton de
 editar perfil. Igual en el controlador al momento de recibir una peticion de editar perfil (if id_a_editar != auth()->user()-id --> error)
     ** Preguntar cómo enviar el nombre del creador del grupo, ya que tengo el user_id.
+
+
+***** Cosas Importantes *****  - Andres!
+    ** Arreglar el /home. Tiene que mostrar la lista de nombres de los grupos que sos parte y tambien las publicaciones
+    ** Convertir el input de los comentarios en un textarea. queda mejor asi
+    ** Necesitamos poder subir fotos, tanto al grupo como al perfil.
+    
+    ** cosas por terminar de las vistas (mio).
+        * vista show de cada grupo
+        * hacer un nuevo footer

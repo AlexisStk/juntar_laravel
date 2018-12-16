@@ -39,6 +39,12 @@ class HomeController extends Controller
         ->where('deleted_at',null)
         ->get();
         
+                /* if(count($userGroups)){
+            for($i=0; isset($userGroups[$i]);$i++){
+                // dd($userGroups[$i]->group_id);
+                $arrGroups[$i] = GroupUser::find($userGroups[$i]->group_id);
+            } */
+
         if(count($userGroups)){
             for($i=0;$i<=count($userGroups)-1;$i++){
                 // dd($userGroups[$i]->group_id);

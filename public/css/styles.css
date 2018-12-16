@@ -264,3 +264,7 @@ carta-contenedor {
     padding-top: 20px;
     padding-left: 60px;
 }
+
+.fondo-blanco {
+    background-color: #FAFAFA;
+}
