@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    @include('layouts.head');
+    @include('layouts.head')
     <title>Inicio</title>
 </head>
 <body class="bodyAzul">
@@ -14,7 +14,6 @@
 
     <ul class="list-group"> 
 
-        @if($groups != null)
 
             @foreach($groups as $group)
 
@@ -25,7 +24,6 @@
 
         </ul>
             @endforeach
-        @endif
     </div>
     
 

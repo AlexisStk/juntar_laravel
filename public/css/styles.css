@@ -246,10 +246,6 @@ footer {
     color: #0062cc;
 }
 
-
-carta-contenedor {
-    margin: 50px;
-}
 .carta {
     margin: 4px;
     flex: 0 0 23%;
@@ -259,4 +255,8 @@ carta-contenedor {
 .cartas {
     padding-top: 20px;
     padding-left: 60px;
+}
+
+.fondo-blanco {
+    background-color: #FAFAFA;
 }
