@@ -6,11 +6,9 @@
 
         <a class="btn btn-primary btn-block" href="/grupos/create"><li class="list-group-item active">¡Crea tu propio grupo!</li></a>
 
-    <ul class="list-group"> 
-
-
         @if($groups != null)
 
+        <ul class="list-group"> 
             @foreach($groups as $group)
 
             <a href="/grupos/show/{{ $group->id }}"><li class="list-group-item">{{ $group->title }}</li></a>
@@ -21,7 +19,11 @@
             @endif
 
         </ul>
+        
             @endforeach
+        @endif
+
     </div>
+
 
 @endSection
