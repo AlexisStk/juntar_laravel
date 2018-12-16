@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    @include('layouts.head');
-    <title>Inicio</title>
-</head>
-<body class="bodyAzul">
-    @include('layouts.navbar')
-    <br>
+@extends('layouts.app')
+
+@section('content')
     
     <div class="col-2">
 
@@ -14,21 +8,21 @@
 
     <ul class="list-group"> 
 
+
         @if($groups != null)
 
             @foreach($groups as $group)
 
             <a href="/grupos/show/{{ $group->id }}"><li class="list-group-item">{{ $group->title }}</li></a>
-            
-            {{ $group->lastPost[count($group->lastPost)-1]->user->name }}
-            {{ $group->lastPost[count($group->lastPost)-1]->content }}
+
+            @if(count($group->lastPost))
+                {{ $group->lastPost[count($group->lastPost)-1]->user->name }}
+                {{ $group->lastPost[count($group->lastPost)-1]->content }}
+            @endif
 
         </ul>
             @endforeach
         @endif
     </div>
-    
 
-    
-</body>
-</html>
+@endSection

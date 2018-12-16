@@ -1,15 +1,9 @@
-<!DOCTYPE html>
+@extends('layouts.app')
 
-<head>
-    @include('layouts.head')
-    <title>Preguntas Frecuentes</title>
-</head>
-
+@section('content')
 <body class="bodyJuntar">
 
     <div class="mainHeader">
-
-        @include('layouts.navbar')
 
     </div>
 
@@ -62,10 +56,4 @@
         </div>
 
     </div>
-
-    @include('layouts.footer')
-    @include('layouts.scripts')
-
-</body>
-
-</html>
+@endsection

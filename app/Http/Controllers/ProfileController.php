@@ -56,7 +56,7 @@ class ProfileController extends Controller
         }
         $user = User::find($id);
 
-        return view('profile')->with('user',$user);
+        return view('user.show')->with('user',$user);
     }
 
     /**
@@ -72,7 +72,8 @@ class ProfileController extends Controller
 
         if($user->id == auth()->user()->id || auth()->user()->role == 7){
             //Si el usuario es el usuario en si, o es ADM:
-            dd('sos el usaurio real o sos admin');
+            //retornamos la vista del panel para editar el user.
+            return view('user.edit');
         }
 
     }
@@ -87,6 +88,29 @@ class ProfileController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $user = User::find($id);
+
+        $user->description = $request->input('description');
+        $user->age = $request->input('age');
+        $user->city = $request->input('city');
+
+        $rules = [
+            'age' => 'integer',
+            'city' => 'string'
+        ];
+
+        $message = [
+            'required' => 'el campo :attribute es obligatorio'
+        ];
+
+        $this->validate($request,$rules,$message);
+
+
+        $file = $request->avatar->store('avatar','public');
+
+        $user->avatarPath = $file;
+
+        $user->save();
     }
 
     /**

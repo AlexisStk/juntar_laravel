@@ -62,3 +62,4 @@ Route::post('/grupos/comment', 'GroupsController@sendComment')->middleware('auth
 // Route::get('/perfil', 'ProfileController@show')->middleware('auth'); //Perfil propio
 Route::get('/perfil/{id?}', 'ProfileController@show')->middleware('auth'); //Perfil de id
 Route::get('/perfil/edit/{id}', 'ProfileController@edit')->middleware('auth'); //Perfil de id
+Route::post('/perfil/edit/{id}', 'ProfileController@update')->middleware('auth'); //Perfil de id

@@ -1,7 +1,6 @@
-@extends('master')
-@section('content')
-    
+@extends('layouts.app')
 
+@section('content')  
        <div class="blanco"> 
         <hr>
             {{ $group->title }} <br>
@@ -63,4 +62,4 @@
 
         <hr>
        </div>
-       @endsection
+@endsection

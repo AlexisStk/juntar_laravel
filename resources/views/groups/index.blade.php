@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    @include('layouts.head')
-    <title>Grupos!</title>
-</head>
-<body class="bodyAzul">
-    @include('layouts.navbar')
+@extends('layouts.app')
+
+@section('content')
         <br>
 
         <div class="container text-center ">
@@ -17,7 +12,7 @@
                     <div class="col-12 col-md-6 col-xs-4 carta">
                         <div class="card fondoCard">
                             <img class="card-img-top" src="{{ asset ('svg/negro.png') }}" alt="Card image cap">
-                                <div class="card-body">
+                                <div class="card-body lbltext">
                                 
                                 <h5 class="card-title"> <a href="/grupos/show/ {{ $group->id }} " class="">{{ $group->title }}</a></h5> <br>
                                     {{ $group->description }} <br>
@@ -42,5 +37,4 @@
         </div>
         
     </div>
-</body>
-</html>
+@endSection

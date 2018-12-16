@@ -1,4 +1,5 @@
-@extends('master')
+@extends('layouts.app')
+
 @section('content')
 <head>
     <title>Organiza tu Juntada</title>

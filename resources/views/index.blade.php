@@ -1,14 +1,6 @@
-<!DOCTYPE html>
+@extends('layouts.app')
 
-<head>
-    @include('layouts.head')
-    <title>JuntAr!</title>
-</head>
-
-<body class="bodyAzul">
-
-        @include('layouts.navbar')
-
+@section('content')
     <div class="container">
 
         <div class="row propMainBody text-center">
@@ -36,9 +28,4 @@
     </div>
     <br>
     <br>
-    @include('layouts.footer')
-    @include('layouts.scripts')
-
-</body>
-
-</html>
+@endSection
