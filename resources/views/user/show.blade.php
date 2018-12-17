@@ -11,7 +11,13 @@
         
             <div class="col-md-2">
                 <div class="profile-img">
-                    <img src="/storage/{{ $user->avatarPath }}">
+
+                    @if($user->avatarPath == null)
+                        <img src=" {{ asset('svg/perfil.jpg') }} " alt=""/>
+                    @else
+                        <img src="/storage/{{ $user->avatarPath }}">
+                    @endif
+
                 </div>
             </div>
             <div class="col-md-5">

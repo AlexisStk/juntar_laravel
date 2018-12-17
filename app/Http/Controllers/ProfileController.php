@@ -73,7 +73,7 @@ class ProfileController extends Controller
         if($user->id == auth()->user()->id || auth()->user()->role == 7){
             //Si el usuario es el usuario en si, o es ADM:
             //retornamos la vista del panel para editar el user.
-            return view('user.edit');
+            return view('user.edit')->with('user',$user);
         }
 
     }
@@ -95,21 +95,24 @@ class ProfileController extends Controller
         $user->city = $request->input('city');
 
         $rules = [
-            'age' => 'integer',
-            'city' => 'string'
+            'age' => 'required|integer',
+            'city' => 'required|string'
         ];
 
         $message = [
             'required' => 'el campo :attribute es obligatorio'
         ];
+
         $this->validate($request,$rules,$message);
-        //dd($request->all());
-        $file = $request->avatar->store('avatar','public');
-        $user->avatarPath = $file;
+
+        if($request->avatar){
+            $file = $request->avatar->store('avatar','public');
+            $user->avatarPath = $file;
+        }
 
         $user->save();
 
-        return redirect()->back()->with('success', 'actiualize todo wachin');
+        return redirect('/perfil/' . $id);
     }
 
     /**

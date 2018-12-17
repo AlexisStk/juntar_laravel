@@ -11,17 +11,20 @@
                 <div class="col-md-6 mx-auto">
                     <div class="form-group row lbltext">
                         <label class="col-md-4 text-right pt-2"for="description">Descripcion:</label>
-                        <input class="form-control col-md-6" type="text" name="description">
+                        <input class="form-control col-md-6" type="text" name="description"
+                        value="{{ $user->description }}">
                     </div>
 
                     <div class="form-group row lbltext">
                         <label class="col-md-4 text-right pt-2" for="age">Edad:</label>
-                        <input class="form-control col-md-6" type="text" name="age">
+                        <input class="form-control col-md-6" type="text" name="age"
+                        value="{{ $user->age }}">
                     </div>
 
                     <div class="form-group row lbltext">
                         <label class="col-md-4 text-right pt-2" for="city">Ciudad:</label>
-                        <input class="form-control col-md-6" type="text" name="city">
+                        <input class="form-control col-md-6" type="text" name="city"
+                        value="{{ $user->city }}">
                     </div>
 
                     <div class="form-group row lbltext">
