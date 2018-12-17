@@ -102,15 +102,14 @@ class ProfileController extends Controller
         $message = [
             'required' => 'el campo :attribute es obligatorio'
         ];
-
         $this->validate($request,$rules,$message);
-
-
+        //dd($request->all());
         $file = $request->avatar->store('avatar','public');
-
         $user->avatarPath = $file;
 
         $user->save();
+
+        return redirect()->back()->with('success', 'actiualize todo wachin');
     }
 
     /**

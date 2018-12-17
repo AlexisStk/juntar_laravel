@@ -33,14 +33,19 @@
                                         aceptar/rechazar/remover, lo que enviamos es el ID de la 
                                         solicitud de amistad, o el ID de la relacion de amistad.--}}
                                     @foreach($group->friendships as $friendship)
-                                    <ul class="nav">
-                                        <li class="nav-item">
-                                          <a class="nav-link active" href="/profile/{{ $friendship->user->id }}">{{ $friendship->user->name }}</a>
-                                        </li>
-                                        <li class="nav-item">
-                                          <a class="nav-link text-right btn btn-danger btn-sm" href="/grupos/removeuser/{{ $friendship->id }}">{{ 'eliminar ' }}</a>
-                                        </li>
-                                      </ul>
+                                    <div class="content">
+                                        <div class="row">
+                                            <div class="col-7"><a class="nav-link active" href="/profile/{{ $friendship->user->id }}">{{ $friendship->user->name }}</a></div>
+                                            
+
+                                            <div class="col-4 text-center">
+                                                @if(!($group->user_id == $friendship->user->id))
+                                                    <a class="nav-link text-right btn btn-danger btn-sm" href="/grupos/removeuser/{{ $friendship->id }}">{{ 'eliminar ' }}</a>
+                                                @endif
+                                            </div>
+                                        </div>
+
+                                    </div>
                                 
                                     @endforeach
                                 @endif

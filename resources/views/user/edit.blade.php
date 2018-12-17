@@ -5,6 +5,7 @@
     
         <form action="" method="POST" enctype="multipart/form-data">
         @csrf
+        {{ method_field('PUT') }}
 
             <div class="row">
                 <div class="col-md-6 mx-auto">

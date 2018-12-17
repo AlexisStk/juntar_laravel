@@ -24,19 +24,22 @@ class GroupUserController extends Controller
         // Arreglo bug, $groupUser -> id buscaba el id de la relacion grupo-usuario, nosotros buscamos el id del grupo.
         $group = Group::find($groupUser->group_id);
 
+        if(!($groupUser->user_id == $group->user_id)) {
 
+            if(!($group->user_id == auth()->user()->id)){
+                //Este ladri no es el creador del grupo, lo sacamos a los tiros.
+                return redirect('/grupos');
+            }
 
-        if(!($group->user_id == auth()->user()->id)){
-            //Este ladri no es el creador del grupo, lo sacamos a los tiros.
-            return redirect('/grupos');
+            // Si llegamos acá quiere decir que el que hace la petición, ES el creador del grupo.
+            
+            //Eliminamos la relación entre grupo-usuario.
+            $this->destroy($groupUser);
+            
+            return redirect('/grupos/show/' . $groupUser->group_id);
+        }else{
+            return redirect('/grupos/show/' . $groupUser->group_id);
         }
-
-        // Si llegamos acá quiere decir que el que hace la petición, ES el creador del grupo.
-        
-        //Eliminamos la relación entre grupo-usuario.
-        $this->destroy($groupUser);
-        
-        return redirect('/grupos/show/' . $groupUser->id);
     }
 
     /**

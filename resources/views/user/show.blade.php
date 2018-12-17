@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container emp-profile">
-    
+
         <div class="text-right mt-0">
             <a class="profile-edit-btn" href="/perfil/edit/{{ $user->id }} ">Editar Perfil</a>
         </div>
@@ -11,7 +11,7 @@
         
             <div class="col-md-2">
                 <div class="profile-img">
-                    <img src=" {{ asset('svg/perfil.jpg') }} ">
+                    <img src="/storage/{{ $user->avatarPath }}">
                 </div>
             </div>
             <div class="col-md-5">
