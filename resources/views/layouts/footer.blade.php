@@ -28,20 +28,6 @@
 
             </div>
 
-            <!--<div class="col-md-3 mb-md-0 mb-3">
-                
-                <br>
-                <br>
-                <li>
-                    <a href="registrarse.php" class="link" >Registrate Gratis!</a>
-                </li>
-                <li>
-                    <a href="login.php" class="link" >Logueate aca!</a>
-                </li>
-                </ul>
-
-            </div> -->
-
         </div>
 
     </div>

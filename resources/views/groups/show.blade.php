@@ -4,19 +4,12 @@
     <title>{{ $group->title }}</title>
 </head>
     
-    {{--<div class="container">
-            <div class="card">
-                <div class="card-header text-center text-body tituloGrupo">
-                    <h2>{{ $group->title }}</h2>
-                </div>
-            </div>
-            <br> --}}
             <div class="container">
 
                     <div class="row">
               
                       <div class="col-lg-3 card"><br>
-                      <h5 class="text-uppercase text-center" >{{ $group->title }}</h1>
+                      <h4 class="text-uppercase text-center" style="font-weight: bold;">{{ $group->title }}</h4>
                         <div class="list-group">
                                 <h5>{{ $group->description }}</h5> 
                                 <h5>{{ $group->place }} </h5>
@@ -40,8 +33,15 @@
                                         aceptar/rechazar/remover, lo que enviamos es el ID de la 
                                         solicitud de amistad, o el ID de la relacion de amistad.--}}
                                     @foreach($group->friendships as $friendship)
-                                        <a href="/profile/{{ $friendship->user->id }}"> {{ $friendship->user->name }} </a>
-                                        <a href="/grupos/removeuser/{{ $friendship->id }} "> {{ 'eliminar ' }} </a> 
+                                    <ul class="nav">
+                                        <li class="nav-item">
+                                          <a class="nav-link active" href="/profile/{{ $friendship->user->id }}">{{ $friendship->user->name }}</a>
+                                        </li>
+                                        <li class="nav-item">
+                                          <a class="nav-link text-right btn btn-danger btn-sm" href="/grupos/removeuser/{{ $friendship->id }}">{{ 'eliminar ' }}</a>
+                                        </li>
+                                      </ul>
+                                
                                     @endforeach
                                 @endif
                         </div>

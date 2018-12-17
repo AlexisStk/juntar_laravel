@@ -16,13 +16,30 @@
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     @include('layouts.head')
 </head>
+    @if(!(Auth::check()))
 <body class="fondoAnimado">
+    
     @include('layouts.navbar')
 
 
         <main class="py-4">
             @yield('content')
         </main>
-    </div>
+        @include('layouts.footer')
 </body>
+    @endif
+
+    @if(Auth::check())
+    <body class="bodyAzul">
+        
+        @include('layouts.navbar')
+    
+    
+            <main class="py-4">
+                @yield('content')
+            </main>
+
+    </body>
+        @endif
+
 </html>

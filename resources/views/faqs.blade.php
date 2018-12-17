@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<body class="bodyJuntar">
+<body class="bodyAzul">
 
     <div class="mainHeader">
 
@@ -56,4 +56,5 @@
         </div>
 
     </div>
+
 @endsection

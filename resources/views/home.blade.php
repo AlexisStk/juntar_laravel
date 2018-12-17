@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    
+    <body class="fondoAnimado">
     <div class="col-2">
 
         <a class="btn btn-primary btn-block" href="/grupos/create"><li class="list-group-item active">¡Crea tu propio grupo!</li></a>
@@ -25,5 +25,5 @@
 
     </div>
 
-
+</body>
 @endSection
