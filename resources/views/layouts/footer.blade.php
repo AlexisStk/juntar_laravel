@@ -8,7 +8,7 @@
 
             <div class="col-md-9 mt-md-0 mt-3">
 
-                <h5 class="text-uppercase footer-text">JuntAR!</h5>
+                <h5 class="text-uppercase text-white footer-text">JuntAR!</h5>
                 <p>Esta es una red social que te sera util para organizar una juntada con tus amigos o con personas con los mismo gustos de manera facil y rapida.</p>
 
             </div>

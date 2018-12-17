@@ -15,13 +15,13 @@
 
                     <div class="row">
               
-                      <div class="col-lg-3 card">
-                      <h1 class="my-4">{{ $group->title }}</h1>
+                      <div class="col-lg-3 card"><br>
+                      <h5 class="text-uppercase text-center" >{{ $group->title }}</h1>
                         <div class="list-group">
-                                {{ $group->description }} <br>
-                                {{ $group->place }} <br>
-                                {{ $group->date }} <br>
-                                {{ $group->limit }} <br>
+                                <h5>{{ $group->description }}</h5> 
+                                <h5>{{ $group->place }} </h5>
+                                <h5>{{ $group->date }}</h5> 
+                                <h5>{{ $group->limit }}</h5> 
                                 <br>
                                 @if($group->user_id == $user->id || $user->role == 7)
                                     <a href="/grupos/edit/{{$group->id}}" class="btn btn-info btn-lg btn-block">Editar Grupo</a> <br>
