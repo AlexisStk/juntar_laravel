@@ -63,7 +63,7 @@ function validatEmail(email){
     }
 
     function validatepassword(password) {
-        const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$/
+        const re = /^(?=.*[a-z])(?=.*\d)[a-zA-Z\d]{6,}$/
         
         
         if (re.test(password))
