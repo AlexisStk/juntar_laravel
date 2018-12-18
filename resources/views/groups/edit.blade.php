@@ -11,7 +11,7 @@
                 <div class="card-header text-center text-body">{{ __('Editar Grupo') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="">
+                    <form method="POST" action="" enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group row">
@@ -77,6 +77,11 @@
                                     </span>
                                 @endif
                             </div>
+                        </div>
+
+                        <div class="form-group row lbltext">
+                            <label class="col-md-4 text-right pt-2" for="groupAvatar">Imagen del Grupo:</label>
+                            <input class="form-control col-md-6" type="file" name="groupAvatar">
                         </div>
 
                         <div class="form-group row mb-0">

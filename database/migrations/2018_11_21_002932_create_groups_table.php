@@ -23,6 +23,7 @@ class CreateGroupsTable extends Migration
             $table->string('place');
             $table->date('limit');
 
+            $table->string('groupAvatarPath')->nullable()->default(null);
             $table->boolean('active')->nullable()->default(true);  //Está activo el grupo?
 
             $table->softDeletes()->nullable(); //Deberiamos usar esto en lugar de active.

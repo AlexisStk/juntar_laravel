@@ -106,7 +106,7 @@ class ProfileController extends Controller
         $this->validate($request,$rules,$message);
 
         if($request->avatar){
-            $file = $request->avatar->store('avatar','public');
+            $file = $request->avatar->store('userAvatar','public');
             $user->avatarPath = $file;
         }
 

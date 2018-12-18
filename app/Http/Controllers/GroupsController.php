@@ -156,6 +156,11 @@ class GroupsController extends Controller
         $group->place = $request->input('place');
         $group->limit = $request->input('limit');
 
+        if($request->groupAvatar){
+            $file = $request->groupAvatar->store('groupAvatars','public');
+            $group->groupAvatarPath = $file;
+        }
+
         $group->save();
 
         return redirect('/grupos/show/'. $group->id);

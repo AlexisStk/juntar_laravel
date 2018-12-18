@@ -8,8 +8,15 @@
 
                     <div class="row">
               
-                      <div class="col-lg-3 card"><br>
-                      <h4 class="text-uppercase text-center" style="font-weight: bold;">{{ $group->title }}</h4>
+                    <div class="col-lg-3 card"><br>
+                    
+                    @if($group->groupAvatarPath == null)
+                        <img style="width:100px" class="mx-auto" src=" {{ asset('svg/signoPregunta.jpg') }} " alt=""/>
+                    @else
+                        <img style="width: 100px;" class="card-img-top img-fluid mx-auto" src="/storage/{{ $group->groupAvatarPath }}" alt="50px">
+                    @endif
+
+                    <h4 class="text-uppercase text-center" style="font-weight: bold;">{{ $group->title }}</h4>
                         <div class="list-group">
                                 <h5>{{ $group->description }}</h5> 
                                 <h5>{{ $group->place }} </h5>
@@ -26,9 +33,9 @@
                                     @endforeach
                                     <hr>
                                     <h5>Integrantes del grupo</h5>
-                                   {{-- Listamos los usuarios que son parte del grupo. --}}
+                                    {{-- Listamos los usuarios que son parte del grupo. --}}
                     
-                                   {{-- OJO! tanto al momento de mandar el aceptar solicitud como para
+                                    {{-- OJO! tanto al momento de mandar el aceptar solicitud como para
                                         mandar el userRemove, el ID que enviamos no es del usuario a 
                                         aceptar/rechazar/remover, lo que enviamos es el ID de la 
                                         solicitud de amistad, o el ID de la relacion de amistad.--}}
@@ -50,14 +57,11 @@
                                     @endforeach
                                 @endif
                         </div>
-                      </div>  
+                    </div>  
                 
          
                 <div class="col-lg-9">
 
-                        <div class="card mt-4">
-                          <img class="card-img-top img-fluid" src="http://placehold.it/900x400" alt="">
-                        </div>
                         <div class="card card-outline-secondary my-4">
                                 <div class="card-header text-center alert alert-primary">
                                   Deja tu comentario acá

@@ -11,7 +11,12 @@
                         @foreach($groups as $group)
                     <div class="col-12 col-md-6 col-xs-4 carta">
                         <div class="card fondoCard">
-                            <img class="card-img-top" src="{{ asset ('svg/negro.png') }}" alt="Card image cap">
+                            @if($group->groupAvatarPath == null)
+                                <img style="width:100px;" class="mx-auto" src=" {{ asset('svg/signoPregunta.jpg') }} " alt=""/>
+                            @else
+                                <img style="width: 100px;" class="card-img-top img-fluid mx-auto" src="/storage/{{ $group->groupAvatarPath }}" alt="50px">
+                            @endif
+                            {{-- <img class="card-img-top" src="{{ asset ('svg/negro.png') }}" alt="Card image cap"> --}}
                                 <div class="card-body lbltext">
                                 
                                 <h5 class="card-title"> <a href="/grupos/show/ {{ $group->id }} " class="">{{ $group->title }}</a></h5> <br>

@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
 
             //Datos no obligatorios:
-            $table->string('avatarPath')->nullable();
+            $table->string('avatarPath')->nullable()->default(null);
             $table->text('description')->nullable();
             $table->integer('age')->nullable();
             $table->string('city')->nullable();
