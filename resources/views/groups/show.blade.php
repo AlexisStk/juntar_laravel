@@ -82,7 +82,7 @@
                 
                 
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-primary btn-lg btn-block">
+                                    <button type="submit" class="btn btn-success btn-lg btn-block">
                                         {{ __('Enviar Comentario') }}
                                     </button>
                                 </div>
@@ -98,7 +98,6 @@
                                         <hr>
                                         @endforeach
                               
-                                  <a href="#" class="btn btn-success">Leave a Review</a>
                                 </div>
                               </div>
                             </div>
