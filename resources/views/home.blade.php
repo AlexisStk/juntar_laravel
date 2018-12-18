@@ -20,18 +20,18 @@
                     <div class="col-10">
                             <h2 class="alert alert-primary text-center" role="alert">Ultimos comentarios</h2>
                         <div class="card">
-                        @foreach ($groups as $group)
-                            @if(count($group->lastPost))
-                            <div class="card">
-                                    <div class="card-body">
-                                            <h5 class="" style="font-weight: bold;">{{ $group->title }}</h5>
-                                            <div style="font-weight: bold;">{{ $group->lastPost[count($group->lastPost)-1]->user->name }} </div>
-                                            {{ $group->lastPost[count($group->lastPost)-1]->content }}.
+                            @foreach ($groups as $group)
+                                @if(count($group->lastPost))
+                                    <div class="card">
+                                        <div class="card-body">
+                                                <h5 class="" style="font-weight: bold;">{{ $group->title }}</h5>
+                                                <div style="font-weight: bold;">{{ $group->lastPost[count($group->lastPost)-1]->user->name }} </div>
+                                                {{ $group->lastPost[count($group->lastPost)-1]->content }}.
+                                        </div>
                                     </div>
-                                  </div>
-                             @endif  
-                             <br>
-                        @endforeach
+                                @endif  
+                                <br>
+                            @endforeach
                         </div>
                     </div>
             </div>
