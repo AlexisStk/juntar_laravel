@@ -33,4 +33,10 @@ class GroupUser extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    
+    public function lastPost()
+    {
+        return $this->hasMany(Post::class);
+    }
 }

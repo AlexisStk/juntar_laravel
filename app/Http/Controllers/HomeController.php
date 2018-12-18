@@ -35,9 +35,7 @@ class HomeController extends Controller
          * los recorremos y vamos enviando el ultimo comentario.
          */
         $groups = null;
-        $userGroups = GroupUser::where('user_id',auth()->user()->id)
-        ->where('deleted_at',null)
-        ->get();
+        $userGroups = GroupUser::where('user_id',auth()->user()->id)->get();
         
                 /* if(count($userGroups)){
             for($i=0; isset($userGroups[$i]);$i++){
@@ -59,7 +57,7 @@ class HomeController extends Controller
         }else{
             $id = auth()->user()->id;
 
-            return view('home')->with('groups',null)->with('id',$id);
+            return view('home')->with('groups',$groups)->with('id',$id);
         }
     }
 }

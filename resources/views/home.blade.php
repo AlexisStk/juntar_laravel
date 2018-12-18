@@ -17,6 +17,8 @@
                     @endif
 
                 </div>
+
+                @if($groups != null)
                     <div class="col-10">
                             <h2 class="alert alert-primary text-center" role="alert">Ultimos comentarios</h2>
                         <div class="card">
@@ -34,6 +36,10 @@
                             @endforeach
                         </div>
                     </div>
+                @else
+                    <div class="mx-auto">
+                    <h2 class="alert alert-primary text-center" role="alert">Todavia no armaste ningun grupo, arma uno <a href="/grupos/create"> aca!</a></h2> </div>
+                @endif
             </div>
         </div>
 @endSection

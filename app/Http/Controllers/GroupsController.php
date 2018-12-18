@@ -204,8 +204,10 @@ class GroupsController extends Controller
             'user_id' => auth()->user()->id
         ];
 
-        $requestExist = RequestGroup::where('group_id',$id)
-        ->where('user_id',$requestData['user_id'])
+
+        $requestExist = RequestGroup::where('group_id', $id)
+        ->withTrashed()
+        ->where('user_id',auth()->user()->id)
         ->take(1)
         ->get();
 

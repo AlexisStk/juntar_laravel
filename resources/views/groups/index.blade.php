@@ -7,9 +7,9 @@
             
             <a href="/grupos/create" class="btn btn-outline-light btn-block btn-lg">¡Crea tu propio grupo!</a>
             
-                <div class="row cartas">
+                <div class="row cartas col-12">
                         @foreach($groups as $group)
-                    <div class="col-12 col-md-6 col-xs-4 carta">
+                    <div class="col-12 carta">
                         <div class="card fondoCard">
                             @if($group->groupAvatarPath == null)
                                 <img style="width:100px;" class="mx-auto" src=" {{ asset('svg/signoPregunta.jpg') }} " alt=""/>
