@@ -18,6 +18,7 @@
 
                 </div>
 
+
                 @if($groups != null)
                     <div class="col-10">
                             <h2 class="alert alert-primary text-center" role="alert">Ultimos comentarios</h2>
